@@ -7,27 +7,36 @@
 //
 
 import UIKit
+import GoogleMaps
 
 
-class MapViewController: UIViewController, UINavigationControllerDelegate {
+class MapViewController: UIViewController, UINavigationControllerDelegate, UISearchBarDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
     
-        // navigation bar Setting
-        self.navigationController?.navigationBar.barTintColor = UIColor(red: 5.0/255.0, green: 150.0/255.0, blue: 121.0/255.0, alpha: 1.0)
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor()]
-        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+        createSearchBar()
+        setNavBar()
+        forceOrientation()
         
+    
         
-        // Force the device in LandscapeRight mode
-        UIDevice.currentDevice().setValue(UIInterfaceOrientation.LandscapeRight.rawValue, forKey: "orientation")
+        let camera = GMSCameraPosition.cameraWithLatitude(36.837433,
+                                                          longitude: 127.168721, zoom: 16)
+        let mapView = GMSMapView.mapWithFrame(CGRectZero, camera: camera)
+        mapView.myLocationEnabled = true
+        mapView.settings.zoomGestures = true
+        self.view = mapView
+        
+        let marker = GMSMarker()
+        marker.position = CLLocationCoordinate2DMake(36.837433, 127.168721)
+        marker.title = "Sydney"
+        marker.snippet = "Australia"
+        marker.map = mapView
         
     }
-    
     override func viewDidAppear(animated: Bool) {
-        // Force the device in LandscapeRight mode
-        UIDevice.currentDevice().setValue(UIInterfaceOrientation.LandscapeRight.rawValue, forKey: "orientation")
+        forceOrientation()
     }
     
     override func didReceiveMemoryWarning() {
@@ -35,6 +44,26 @@ class MapViewController: UIViewController, UINavigationControllerDelegate {
         
     }
     
+    func createSearchBar() {
+        let searchBar = UISearchBar()
+        searchBar.showsCancelButton = false
+        searchBar.placeholder = "검색할 수목 이름을 입력하세요."
+        searchBar.delegate = self
+        
+        self.navigationItem.titleView = searchBar
+    }
+    
+    func setNavBar() {
+        // navigation bar Setting
+        self.navigationController?.navigationBar.barTintColor = UIColor(red: 5.0/255.0, green: 150.0/255.0, blue: 121.0/255.0, alpha: 1.0)
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor()]
+        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+    }
+    
+    func forceOrientation() {
+        // Force the device in LandscapeRight mode
+        UIDevice.currentDevice().setValue(UIInterfaceOrientation.LandscapeRight.rawValue, forKey: "orientation")
+    }
     
     
     func navigationControllerSupportedInterfaceOrientations(navigationController: UINavigationController) -> UIInterfaceOrientationMask {
