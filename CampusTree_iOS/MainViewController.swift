@@ -40,8 +40,12 @@ class MainViewController: UIViewController {
         
     }
     
- 
+    
+    func navigationControllerSupportedInterfaceOrientations(navigationController: UINavigationController) -> UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.Portrait
+    }
     // 세로 고정과 화면 회전 불가능을 위한 메소드
+    /*
     override func shouldAutorotate() -> Bool {
         return false
     }
@@ -50,7 +54,7 @@ class MainViewController: UIViewController {
     }
     override func preferredInterfaceOrientationForPresentation() -> UIInterfaceOrientation {
         return UIInterfaceOrientation.Portrait
-    }
+    }*/
     // 세로 고정과 화면 회전 불가능을 위한 메소드 끝
     
 
@@ -79,4 +83,6 @@ class MainViewController: UIViewController {
     }
     
 }
+
+
 

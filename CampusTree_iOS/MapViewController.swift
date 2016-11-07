@@ -9,7 +9,7 @@
 import UIKit
 
 
-class MapViewController: UIViewController {
+class MapViewController: UIViewController, UINavigationControllerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,8 +37,12 @@ class MapViewController: UIViewController {
     
     
     
+    func navigationControllerSupportedInterfaceOrientations(navigationController: UINavigationController) -> UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.LandscapeRight
+    }
+    
     // 가로 고정과 화면 회전 불가능을 위한 메소드
-    override func shouldAutorotate() -> Bool {
+    /*override func shouldAutorotate() -> Bool {
         return false
     }
     override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
@@ -46,7 +50,7 @@ class MapViewController: UIViewController {
     }
     override func preferredInterfaceOrientationForPresentation() -> UIInterfaceOrientation {
         return UIInterfaceOrientation.LandscapeRight
-    }
+    }*/
     // 가로 고정과 화면 회전 불가능을 위한 메소드 끝.
     
     
@@ -57,3 +61,5 @@ class MapViewController: UIViewController {
         //self.navigationController?.popViewControllerAnimated(true)
     }
 }
+
+

@@ -19,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
+    /*
     func application(application: UIApplication, supportedInterfaceOrientationsForWindow window: UIWindow?) -> UIInterfaceOrientationMask {
         
         let viewController = self.window?.rootViewController
@@ -43,15 +44,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
     }
-    
-
-    /*
     func application(application: UIApplication, supportedInterfaceOrientationsForWindow window: UIWindow) -> Int {
         
         return checkOrientation(self.window?.rootViewController)// This is the custom function that u need to set your custom view to each orientation which u want to lock
         
-    }*/
-    /*func checkOrientation(viewController:UIViewController?)-> Int{
+    }
+    func checkOrientation(viewController:UIViewController?)-> Int{
         
         if(viewController == nil){
             
