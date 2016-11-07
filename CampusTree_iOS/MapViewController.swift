@@ -10,7 +10,7 @@ import UIKit
 import GoogleMaps
 
 
-class MapViewController: UIViewController, UINavigationControllerDelegate, UISearchBarDelegate {
+class MapViewController: UIViewController, UINavigationControllerDelegate, UISearchBarDelegate, GMSMapViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,9 +20,9 @@ class MapViewController: UIViewController, UINavigationControllerDelegate, UISea
         forceOrientation()
         
     
-        
+        /*
         let camera = GMSCameraPosition.cameraWithLatitude(36.837433,
-                                                          longitude: 127.168721, zoom: 16)
+                                                          longitude: 127.168721, zoom: 17)
         let mapView = GMSMapView.mapWithFrame(CGRectZero, camera: camera)
         mapView.myLocationEnabled = true
         mapView.settings.zoomGestures = true
@@ -34,6 +34,14 @@ class MapViewController: UIViewController, UINavigationControllerDelegate, UISea
         marker.snippet = "Australia"
         marker.map = mapView
         
+        
+        let circleCenter : CLLocationCoordinate2D  = CLLocationCoordinate2DMake(36.837433, 127.168721);
+        let circ = GMSCircle(position: circleCenter, radius: 50)
+        circ.fillColor = UIColor(red: 0.0, green: 0.7, blue: 0, alpha: 0.1)
+        circ.strokeColor = UIColor(red: 255/255, green: 153/255, blue: 51/255, alpha: 0.5)
+        circ.strokeWidth = 1;
+        circ.map = mapView*/
+        
     }
     override func viewDidAppear(animated: Bool) {
         forceOrientation()
@@ -43,6 +51,46 @@ class MapViewController: UIViewController, UINavigationControllerDelegate, UISea
         super.didReceiveMemoryWarning()
         
     }
+    
+    
+    override func loadView() {
+        var camera = GMSCameraPosition.cameraWithLatitude(36.837433, longitude:127.168721, zoom:17)
+        var mapView = GMSMapView.mapWithFrame(CGRectZero, camera:camera)
+        mapView.delegate = self
+        self.view = mapView
+    }
+    func mapView(mapView: GMSMapView, didTapAtCoordinate coordinate: CLLocationCoordinate2D) {
+        
+        let lat = coordinate.latitude
+        let lng = coordinate.longitude
+        
+        let camera = GMSCameraPosition.cameraWithLatitude(lat, longitude: lng, zoom:17)
+        let mapView = GMSMapView.mapWithFrame(CGRectZero, camera:camera)
+        mapView.delegate = self
+        self.view = mapView
+        
+        let circleCenter : CLLocationCoordinate2D  = CLLocationCoordinate2DMake(lat, lng);
+        let circ = GMSCircle(position: circleCenter, radius: 50)
+        circ.fillColor = UIColor(red: 0.0, green: 0.7, blue: 0, alpha: 0.1)
+        circ.strokeColor = UIColor(red: 255/255, green: 153/255, blue: 51/255, alpha: 0.5)
+        circ.strokeWidth = 1;
+        circ.map = mapView
+        
+        print("I tapped at \(coordinate.latitude), \(coordinate.longitude)")
+    }
+    
+    /* 클릭시 위치 찾기
+    func mapView(mapView: GMSMapView!, didTapMarker marker: GMSMarker!) -> Bool {
+        let myFirstButton = UIButton()
+        myFirstButton.setTitle("✸", forState: .Normal)
+        myFirstButton.setTitleColor(UIColor.blueColor(), forState: .Normal)
+        myFirstButton.frame = CGRectMake(15, -50, 300, 500)
+        myFirstButton.addTarget(self, action: "pressed:", forControlEvents: .TouchUpInside)
+        
+        self.view.addSubview(myFirstButton)
+        return true
+    }*/
+    
     
     func createSearchBar() {
         let searchBar = UISearchBar()
