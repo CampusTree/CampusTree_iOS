@@ -15,6 +15,8 @@
 		592D8C5C1DCFCA2C00F2E0F0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 592D8C5A1DCFCA2C00F2E0F0 /* LaunchScreen.storyboard */; };
 		592D8C671DCFCA2C00F2E0F0 /* CampusTree_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592D8C661DCFCA2C00F2E0F0 /* CampusTree_iOSTests.swift */; };
 		592F8CC31DD09962003B4FA4 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 592F8CC21DD09962003B4FA4 /* MapKit.framework */; };
+		59521F8D1DD46099004EAEF3 /* CampusTree_Data in Resources */ = {isa = PBXBuildFile; fileRef = 59521F8C1DD46099004EAEF3 /* CampusTree_Data */; };
+		59521F911DD464F5004EAEF3 /* TreeLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59521F901DD464F5004EAEF3 /* TreeLocation.swift */; };
 		59FD16A81DD017C80037EF81 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59FD16A71DD017C80037EF81 /* MapViewController.swift */; };
 		59FD16AA1DD021830037EF81 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59FD16A91DD021830037EF81 /* MainViewController.swift */; };
 		74068FE15BD42906EEA568F0 /* Pods_CampusTree_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D33FE71B9F67A9B45AE6B6E /* Pods_CampusTree_iOS.framework */; };
@@ -43,6 +45,8 @@
 		592D8C661DCFCA2C00F2E0F0 /* CampusTree_iOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampusTree_iOSTests.swift; sourceTree = "<group>"; };
 		592D8C681DCFCA2C00F2E0F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		592F8CC21DD09962003B4FA4 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		59521F8C1DD46099004EAEF3 /* CampusTree_Data */ = {isa = PBXFileReference; lastKnownFileType = folder; path = CampusTree_Data; sourceTree = "<group>"; };
+		59521F901DD464F5004EAEF3 /* TreeLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TreeLocation.swift; sourceTree = "<group>"; };
 		59FD16A71DD017C80037EF81 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		59FD16A91DD021830037EF81 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		8D33FE71B9F67A9B45AE6B6E /* Pods_CampusTree_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CampusTree_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -96,6 +100,7 @@
 		592D8C501DCFCA2C00F2E0F0 /* CampusTree_iOS */ = {
 			isa = PBXGroup;
 			children = (
+				59521F8C1DD46099004EAEF3 /* CampusTree_Data */,
 				592D8C511DCFCA2C00F2E0F0 /* AppDelegate.swift */,
 				592D8C531DCFCA2C00F2E0F0 /* ViewController.swift */,
 				59FD16A71DD017C80037EF81 /* MapViewController.swift */,
@@ -104,6 +109,7 @@
 				592D8C5A1DCFCA2C00F2E0F0 /* LaunchScreen.storyboard */,
 				592D8C5D1DCFCA2C00F2E0F0 /* Info.plist */,
 				59FD16A91DD021830037EF81 /* MainViewController.swift */,
+				59521F901DD464F5004EAEF3 /* TreeLocation.swift */,
 			);
 			path = CampusTree_iOS;
 			sourceTree = "<group>";
@@ -233,6 +239,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				592D8C5C1DCFCA2C00F2E0F0 /* LaunchScreen.storyboard in Resources */,
+				59521F8D1DD46099004EAEF3 /* CampusTree_Data in Resources */,
 				592D8C591DCFCA2C00F2E0F0 /* Assets.xcassets in Resources */,
 				592D8C571DCFCA2C00F2E0F0 /* Main.storyboard in Resources */,
 			);
@@ -349,6 +356,7 @@
 				59FD16A81DD017C80037EF81 /* MapViewController.swift in Sources */,
 				592D8C521DCFCA2C00F2E0F0 /* AppDelegate.swift in Sources */,
 				59FD16AA1DD021830037EF81 /* MainViewController.swift in Sources */,
+				59521F911DD464F5004EAEF3 /* TreeLocation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -478,6 +486,7 @@
 			baseConfigurationReference = 3B5F29EA121C6D7AEC155E4A /* Pods-CampusTree_iOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = CampusTree_iOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.dankookUniv.CampusTree-iOS";
@@ -490,6 +499,7 @@
 			baseConfigurationReference = E5BC4705D37F6FB988322849 /* Pods-CampusTree_iOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = CampusTree_iOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.dankookUniv.CampusTree-iOS";

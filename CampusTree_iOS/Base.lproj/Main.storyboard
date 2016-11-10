@@ -221,6 +221,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <connections>
+                        <outlet property="aMapView" destination="M86-dw-nKt" id="CCF-It-Dr2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QU5-2b-IJP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -396,6 +399,7 @@
                     <connections>
                         <outlet property="mapView" destination="4Zz-EL-Ydw" id="SzD-CP-FJo"/>
                         <outlet property="navItem" destination="L4q-HK-N9y" id="Vpa-hE-F3y"/>
+                        <outlet property="searchView" destination="jgL-AU-99j" id="H31-h0-eBT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qRt-Hb-mjZ" userLabel="First Responder" sceneMemberID="firstResponder"/>

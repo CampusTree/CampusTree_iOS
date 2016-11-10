@@ -13,11 +13,14 @@ class MainViewController: UIViewController {
     
     @IBOutlet weak var navItem: UINavigationItem!
     @IBOutlet weak var mapView: UIView!
+    @IBOutlet weak var searchView: UIView!
     
     let tapGesture = UITapGestureRecognizer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //self.searchView?.hidden = true
         
         setNavBar()
         forceOrientation()
@@ -74,9 +77,12 @@ class MainViewController: UIViewController {
             print("Map tapped")
             
             //let nextViewController = self.storyboard?.instantiateViewControllerWithIdentifier("mapView") as! MapViewController
+            
             let nextViewController = self.storyboard?.instantiateViewControllerWithIdentifier("mapViewNavController") as! UINavigationController
             self.presentViewController(nextViewController, animated:true, completion:nil)
+            
             //self.navigationController?.pushViewController(nextViewController, animated: true)
+            
             
         default:
             print("Other tapped")
