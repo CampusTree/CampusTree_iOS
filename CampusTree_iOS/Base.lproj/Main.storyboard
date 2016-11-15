@@ -211,7 +211,26 @@
                     <view key="view" contentMode="scaleToFill" id="M86-dw-nKt">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MNx-Wx-cuh">
+                                <rect key="frame" x="360" y="64" width="240" height="536"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JoM-GD-N3x">
+                                        <rect key="frame" x="97" y="80" width="46" height="30"/>
+                                        <state key="normal" title="Button"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="MNx-Wx-cuh" secondAttribute="trailing" id="3LH-w3-1aY"/>
+                            <constraint firstItem="MNx-Wx-cuh" firstAttribute="width" secondItem="M86-dw-nKt" secondAttribute="width" multiplier="0.4" id="55l-i1-ecQ"/>
+                            <constraint firstItem="MNx-Wx-cuh" firstAttribute="top" secondItem="J34-ZH-HK0" secondAttribute="bottom" id="B4d-yc-Vhh"/>
+                            <constraint firstItem="MNx-Wx-cuh" firstAttribute="height" secondItem="M86-dw-nKt" secondAttribute="height" id="R9x-Pe-wIX"/>
+                            <constraint firstItem="9xh-Qt-3aQ" firstAttribute="top" secondItem="MNx-Wx-cuh" secondAttribute="bottom" id="bka-lF-Qzi"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="pCm-bG-wA2">
                         <barButtonItem key="leftBarButtonItem" title="뒤로" id="Pjv-tE-fSf">
@@ -222,7 +241,7 @@
                     </navigationItem>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
-                        <outlet property="aMapView" destination="M86-dw-nKt" id="CCF-It-Dr2"/>
+                        <outlet property="aMapView" destination="M86-dw-nKt" id="O5v-GZ-lgr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QU5-2b-IJP" userLabel="First Responder" sceneMemberID="firstResponder"/>

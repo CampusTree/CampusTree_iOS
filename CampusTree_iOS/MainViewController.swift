@@ -24,6 +24,35 @@ class MainViewController: UIViewController {
         
         setNavBar()
         forceOrientation()
+        
+        /*
+        var a = "aaaaa"
+        var b = "bbbbb"
+        var dic: [String: String] = [:]
+        
+        
+        var dd: [[String]] = []
+        var dics: [String: Array<[String]>] = [:]
+        
+        dic.updateValue("특성1", forKey: "1")
+        dic.updateValue("특성2", forKey: "2")
+        dic.updateValue("특성3", forKey: "3")
+        dic.updateValue("특성4", forKey: "4")
+        
+        for i in 0...3 {
+            dd[i] = [a, b]
+        }
+        
+        
+        dics.updateValue(dd, forKey: "밖1")
+        var d = dics["밖1"]
+        */
+        
+        //for i in d! {}
+            //print("\(dics["밖1"]) // \(d["1"])")
+        
+        
+        
     }
     
     override func viewDidAppear(animated: Bool) {

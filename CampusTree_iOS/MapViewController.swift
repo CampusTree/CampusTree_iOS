@@ -11,7 +11,7 @@ import GoogleMaps
 
 
 class MapViewController: UIViewController, UINavigationControllerDelegate, UISearchBarDelegate, GMSMapViewDelegate {
-    
+
     @IBOutlet var aMapView: UIView!
     
     var locations: [TreeLocation] = [TreeLocation]()
@@ -31,8 +31,6 @@ class MapViewController: UIViewController, UINavigationControllerDelegate, UISea
     let fillColor = UIColor(red: 20/255, green: 255/255, blue: 0/255, alpha: 1.0)
     let strokeColor = UIColor.redColor()
     let strokeWidth: CGFloat = 1.5
-
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,7 +39,10 @@ class MapViewController: UIViewController, UINavigationControllerDelegate, UISea
         createSearchBar()
         setNavBar()
         forceOrientation()
-     
+        
+        //myLoadView()
+        //self.aDetailView!.hidden = true
+        
     }
     override func viewDidAppear(animated: Bool) {
         forceOrientation()
@@ -63,6 +64,17 @@ class MapViewController: UIViewController, UINavigationControllerDelegate, UISea
         self.currentZoom = intialZoom
         setScaleWithZoom(intialZoom)
     }
+    /*func myLoadView() {
+        let camera = GMSCameraPosition.cameraWithLatitude(intialLat, longitude: intialLng, zoom: intialZoom)
+        let mapView = GMSMapView.mapWithFrame(CGRectZero, camera:camera)
+        mapView.setMinZoom(17, maxZoom: 20)
+        //mapView.delegate = self.aMapView
+        //self.view = mapView
+        aMapView = mapView
+        
+        self.currentZoom = intialZoom
+        setScaleWithZoom(intialZoom)
+    }*/
     
     // Map에서 Zoom 변경시
     func mapView(mapView: GMSMapView, didChangeCameraPosition position: GMSCameraPosition) {
@@ -81,6 +93,7 @@ class MapViewController: UIViewController, UINavigationControllerDelegate, UISea
         mapView.setMinZoom(17, maxZoom: 20)
         mapView.delegate = self
         self.view = mapView
+        //self.aMapView = mapView
         
         // Draw Circle
         let circleCenter : CLLocationCoordinate2D  = CLLocationCoordinate2DMake(tappedlat, tappedlng);
@@ -141,7 +154,7 @@ class MapViewController: UIViewController, UINavigationControllerDelegate, UISea
                     locations.append(TreeLocation(lat: data[1].toDouble(), lng: data[2].toDouble(), treeName: "\(data[3])"))
                 }
                 
-                //print("Locations : \(locations)")
+                print("Locations : \(locations)")
             } catch let error as NSError {
                 print("Error : \(error)")
             }

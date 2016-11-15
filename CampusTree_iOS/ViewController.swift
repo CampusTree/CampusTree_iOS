@@ -12,6 +12,8 @@ class ViewController: UIViewController {
 
 
     @IBOutlet weak var navBar: UINavigationBar!
+    
+    
     @IBOutlet weak var mapView: UIView!
     
     let tapGesture = UITapGestureRecognizer()
