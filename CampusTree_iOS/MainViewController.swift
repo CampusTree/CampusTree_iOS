@@ -20,39 +20,8 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //self.searchView?.hidden = true
-        
         setNavBar()
         forceOrientation()
-        
-        /*
-        var a = "aaaaa"
-        var b = "bbbbb"
-        var dic: [String: String] = [:]
-        
-        
-        var dd: [[String]] = []
-        var dics: [String: Array<[String]>] = [:]
-        
-        dic.updateValue("특성1", forKey: "1")
-        dic.updateValue("특성2", forKey: "2")
-        dic.updateValue("특성3", forKey: "3")
-        dic.updateValue("특성4", forKey: "4")
-        
-        for i in 0...3 {
-            dd[i] = [a, b]
-        }
-        
-        
-        dics.updateValue(dd, forKey: "밖1")
-        var d = dics["밖1"]
-        */
-        
-        //for i in d! {}
-            //print("\(dics["밖1"]) // \(d["1"])")
-        
-        
-        
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -64,21 +33,23 @@ class MainViewController: UIViewController {
         
     }
     
-    
+    // navigation bar Setting
     func setNavBar() {
-        // navigation bar Setting
+        
         self.navigationController?.navigationBar.barTintColor = UIColor(red: 5.0/255.0, green: 150.0/255.0, blue: 121.0/255.0, alpha: 1.0)
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor()]
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
     }
+    // Force the device in portrait mode
     func forceOrientation() {
-        // Force the device in portrait mode
         UIDevice.currentDevice().setValue(UIInterfaceOrientation.Portrait.rawValue, forKey: "orientation")
     }
     
     func navigationControllerSupportedInterfaceOrientations(navigationController: UINavigationController) -> UIInterfaceOrientationMask {
         return UIInterfaceOrientationMask.Portrait
     }
+    
+    
     // 세로 고정과 화면 회전 불가능을 위한 메소드
     /*
     override func shouldAutorotate() -> Bool {

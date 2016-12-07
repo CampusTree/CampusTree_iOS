@@ -9,13 +9,11 @@
 import UIKit
 import GoogleMaps
 
-
 class MapViewController: UIViewController, UINavigationControllerDelegate, UISearchBarDelegate, GMSMapViewDelegate {
 
     @IBOutlet var aMapView: UIView!
     
-    var locations: [TreeLocation] = [TreeLocation]()
-    
+    var locations: [TreeLocation]! = [TreeLocation]()
     var marker: GMSMarker!
     
     let intialLat = 36.83650519834776
@@ -27,7 +25,7 @@ class MapViewController: UIViewController, UINavigationControllerDelegate, UISea
     var currentZoom: Float!
     let circleRadius = 15.0
     
-    //20,255,0,0
+    // RGBA(20,255,0,0)
     let fillColor = UIColor(red: 20/255, green: 255/255, blue: 0/255, alpha: 1.0)
     let strokeColor = UIColor.redColor()
     let strokeWidth: CGFloat = 1.5
@@ -38,14 +36,13 @@ class MapViewController: UIViewController, UINavigationControllerDelegate, UISea
         dataLoad()
         createSearchBar()
         setNavBar()
-        forceOrientation()
+        forcedOrientation()
         
         //myLoadView()
         //self.aDetailView!.hidden = true
-        
     }
     override func viewDidAppear(animated: Bool) {
-        forceOrientation()
+        forcedOrientation()
     }
     
     override func didReceiveMemoryWarning() {
@@ -53,7 +50,7 @@ class MapViewController: UIViewController, UINavigationControllerDelegate, UISea
     }
     
     
-    // Map 초기 세팅
+    // Init Map
     override func loadView() {
         let camera = GMSCameraPosition.cameraWithLatitude(intialLat, longitude: intialLng, zoom: intialZoom)
         let mapView = GMSMapView.mapWithFrame(CGRectZero, camera:camera)
@@ -177,7 +174,7 @@ class MapViewController: UIViewController, UINavigationControllerDelegate, UISea
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
     }
     
-    func forceOrientation() {
+    func forcedOrientation() {
         // Force the device in LandscapeRight mode
         UIDevice.currentDevice().setValue(UIInterfaceOrientation.LandscapeRight.rawValue, forKey: "orientation")
     }

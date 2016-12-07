@@ -37,10 +37,9 @@ class ViewController: UIViewController {
     }
     
     override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-        return [.Portrait]    // 세로 고정
+        return [.Portrait]
     }
-    
-    // 
+
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         
         let touch : UITouch = touches.first! as UITouch
