@@ -13,6 +13,7 @@ class MapViewController: UIViewController, UINavigationControllerDelegate, UISea
 
     @IBOutlet var aMapView: UIView!
     
+
     var locations: [TreeLocation]! = [TreeLocation]()
     var marker: GMSMarker!
     
@@ -24,6 +25,8 @@ class MapViewController: UIViewController, UINavigationControllerDelegate, UISea
     var scale: Double!
     var currentZoom: Float!
     let circleRadius = 15.0
+    
+    var camera = GMSCameraPosition.cameraWithLatitude(36.83650519834776, longitude: 127.16871175915003, zoom: 17.0)
     
     // RGBA(20,255,0,0)
     let fillColor = UIColor(red: 20/255, green: 255/255, blue: 0/255, alpha: 1.0)
@@ -52,7 +55,8 @@ class MapViewController: UIViewController, UINavigationControllerDelegate, UISea
     
     // Init Map
     override func loadView() {
-        let camera = GMSCameraPosition.cameraWithLatitude(intialLat, longitude: intialLng, zoom: intialZoom)
+        
+        //let camera = GMSCameraPosition.cameraWithLatitude(intialLat, longitude: intialLng, zoom: intialZoom)
         let mapView = GMSMapView.mapWithFrame(CGRectZero, camera:camera)
         mapView.setMinZoom(17, maxZoom: 20)
         mapView.delegate = self
